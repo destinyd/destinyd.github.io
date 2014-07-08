@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[DestinyD's Blog]]></title>
+  <link href="http://destinyd.github.io/atom.xml" rel="self"/>
+  <link href="http://destinyd.github.io/"/>
+  <updated>2014-07-08T11:37:54+00:00</updated>
+  <id>http://destinyd.github.io/</id>
+  <author>
+    <name><![CDATA[DestinyD]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[用jekyll建造blog并放到github上]]></title>
+    <link href="http://destinyd.github.io/2014-07-08/jekyll-blog-to-github/"/>
+    <updated>2014-07-08T10:51:29+00:00</updated>
+    <id>http://destinyd.github.io/2014-07-08/jekyll-blog-to-github</id>
+    <content type="html"><![CDATA[<h1>用jekyll建造blog并放到github上</h1>
+
+<p>jekyll是一个轻量级的网站框架，经常被用于建设github上的blog，</p>
+
+<h2>1. 安装ruby</h2>
+
+<p>可以参考 <a href="http://rvm.io">rvm.io</a></p>
+
+<h2>2. 安装jekyll</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>gem install jekyll</span></code></pre></td></tr></table></div></figure>
+
+
+<p>备注： 国内可能需要更换gem源，否则可能会因为被墙而不能正常安装。<a href="http://ruby.taobao.org">taobao源</a></p>
+
+<h2>3. 创建、并运行blog</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>jekyll new blog
+</span><span class='line'>cd blog
+</span><span class='line'>jekyll serve</span></code></pre></td></tr></table></div></figure>
+
+
+<p>这时候你可以打开浏览器直接访问
+<a href="http://127.0.0.1:4000">http://127.0.0.1:4000</a>
+一个简单的blog就建成了</p>
+
+<h2>4. 添加文章</h2>
+
+<p>打开<code>_posts/</code>你会发现有一篇以:year-:month-:day-:title.markdown命名的文章，你可以以此格式复制成你想要的名称，打开修改即可。</p>
+
+<p>文章默认使用markdown格式，你也可以使用textile，这个看个人喜好。</p>
+
+<h2>5. 部署到github</h2>
+
+<p>首先你需要在github创建一个你的名称.github.io的项目（如：我的用户名为destinyd，项目名则为 destinyd.github.io）</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>jekyll build
+</span><span class='line'>cd _site
+</span><span class='line'>git init
+</span><span class='line'>git add .
+</span><span class='line'>git remote add origin git@github.com:用户名/用户名.github.io.git
+</span><span class='line'>git push -u origin master</span></code></pre></td></tr></table></div></figure>
+
+
+<p>执行完就可以通过
+<a href="http://%E7%94%A8%E6%88%B7%E5%90%8D.github.io">http://%E7%94%A8%E6%88%B7%E5%90%8D.github.io</a>
+访问了</p>
+]]></content>
+  </entry>
+  
+</feed>
