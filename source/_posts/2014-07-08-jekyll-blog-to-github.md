@@ -37,16 +37,19 @@ http://127.0.0.1:4000
 
 ## 5. 部署到github
 首先你需要在github创建一个你的名称.github.io的项目（如：我的用户名为destinyd，项目名则为 destinyd.github.io）
+
+以我的blog提交作为范例
 ```
 jekyll build
 cd _site
 git init
 git add .
-git remote add origin git@github.com:用户名/用户名.github.io.git
+git commit -m 'first commit'
+git remote add origin git@github.com:destinyd/destinyd.github.io.git
 git push -u origin master
 ```
 执行完就可以通过
-http://用户名.github.io
+http://destinyd.github.io
 访问了
 
 [rvm]: http://rvm.io
