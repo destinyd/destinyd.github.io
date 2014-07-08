@@ -4,7 +4,7 @@
   <title><![CDATA[DestinyD's Blog]]></title>
   <link href="http://destinyd.github.io/atom.xml" rel="self"/>
   <link href="http://destinyd.github.io/"/>
-  <updated>2014-07-08T11:37:54+00:00</updated>
+  <updated>2014-07-08T16:38:08+00:00</updated>
   <id>http://destinyd.github.io/</id>
   <author>
     <name><![CDATA[DestinyD]]></name>
@@ -15,12 +15,10 @@
   
   <entry>
     <title type="html"><![CDATA[用jekyll建造blog并放到github上]]></title>
-    <link href="http://destinyd.github.io/2014-07-08/jekyll-blog-to-github/"/>
+    <link href="http://destinyd.github.io/2014-07-08-jekyll-blog-to-github/"/>
     <updated>2014-07-08T10:51:29+00:00</updated>
-    <id>http://destinyd.github.io/2014-07-08/jekyll-blog-to-github</id>
-    <content type="html"><![CDATA[<h1>用jekyll建造blog并放到github上</h1>
-
-<p>jekyll是一个轻量级的网站框架，经常被用于建设github上的blog，</p>
+    <id>http://destinyd.github.io/jekyll-blog-to-github</id>
+    <content type="html"><![CDATA[<p>jekyll是一个轻量级的网站框架，经常被用于建设github上的blog，</p>
 
 <h2>1. 安装ruby</h2>
 
@@ -58,22 +56,26 @@
 
 <p>首先你需要在github创建一个你的名称.github.io的项目（如：我的用户名为destinyd，项目名则为 destinyd.github.io）</p>
 
+<p>以我的blog提交作为范例</p>
+
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
+<span class='line-number'>7</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>jekyll build
 </span><span class='line'>cd _site
 </span><span class='line'>git init
 </span><span class='line'>git add .
-</span><span class='line'>git remote add origin git@github.com:用户名/用户名.github.io.git
+</span><span class='line'>git commit -m 'first commit'
+</span><span class='line'>git remote add origin git@github.com:destinyd/destinyd.github.io.git
 </span><span class='line'>git push -u origin master</span></code></pre></td></tr></table></div></figure>
 
 
 <p>执行完就可以通过
-<a href="http://%E7%94%A8%E6%88%B7%E5%90%8D.github.io">http://%E7%94%A8%E6%88%B7%E5%90%8D.github.io</a>
+<a href="http://destinyd.github.io">http://destinyd.github.io</a>
 访问了</p>
 ]]></content>
   </entry>

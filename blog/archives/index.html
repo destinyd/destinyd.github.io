@@ -9,8 +9,8 @@
   <meta name="author" content="DestinyD">
 
   
-  <meta name="description" content=" Blog Archive 2014 用jekyll建造blog并放到github上
-Jul 08 2014 posted in jekyll Recent Posts 用jekyll建造blog并放到github上 ">
+  <meta name="description" content="Blog Archive 2014 用jekyll建造blog并放到github上
+Jul 08 2014 posted in jekyll Recent Posts 用jekyll建造blog并放到github上 GitHub Repos Status updating... @ &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -81,7 +81,7 @@ Jul 08 2014 posted in jekyll Recent Posts 用jekyll建造blog并放到github上 
 
 <article>
   
-<h1><a href="/2014-07-08/jekyll-blog-to-github/">用jekyll建造blog并放到github上</a></h1>
+<h1><a href="/2014-07-08-jekyll-blog-to-github/">用jekyll建造blog并放到github上</a></h1>
 <time datetime="2014-07-08T10:51:29+00:00" pubdate><span class='month'>Jul</span> <span class='day'>08</span> <span class='year'>2014</span></time>
 
 <footer>
@@ -105,10 +105,39 @@ Jul 08 2014 posted in jekyll Recent Posts 用jekyll建造blog并放到github上 
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/2014-07-08/jekyll-blog-to-github/">用jekyll建造blog并放到github上</a>
+        <a href="/2014-07-08-jekyll-blog-to-github/">用jekyll建造blog并放到github上</a>
       </li>
     
   </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/destinyd">@destinyd</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'destinyd',
+            count: 5,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
 </section>
 
 
