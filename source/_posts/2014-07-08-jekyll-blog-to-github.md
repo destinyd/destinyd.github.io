@@ -2,8 +2,8 @@
 layout: post
 title:  "用jekyll建造blog并放到github上"
 date:   2014-07-08 10:51:29
-categories: jekyll
-tags:
+comments: true
+categories:
 - jekyll
 - ruby
 - github
