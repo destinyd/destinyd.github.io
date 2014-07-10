@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[DestinyD's Blog]]></title>
-  <link href="http://destinyd.github.io/atom.xml" rel="self"/>
+  <title><![CDATA[Category: Github | DestinyD's Blog]]></title>
+  <link href="http://destinyd.github.io/blog/categories/github/atom.xml" rel="self"/>
   <link href="http://destinyd.github.io/"/>
   <updated>2014-07-10T09:40:14+00:00</updated>
   <id>http://destinyd.github.io/</id>
@@ -26,23 +26,20 @@
 
 <h2>2. 安装jekyll</h2>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>gem install jekyll</span></code></pre></td></tr></table></div></figure>
-
+<p><code>
+gem install jekyll
+</code></p>
 
 <p>备注： 国内可能需要更换gem源，否则可能会因为被墙而不能正常安装。<a href="http://ruby.taobao.org">taobao源</a></p>
 
 <h2>3. 创建、并运行blog</h2>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>jekyll new blog
-</span><span class='line'>cd blog
-</span><span class='line'>jekyll serve</span></code></pre></td></tr></table></div></figure>
-
-
-<p>这时候你可以打开浏览器直接访问
+<p><code>
+jekyll new blog
+cd blog
+jekyll serve
+</code>
+这时候你可以打开浏览器直接访问
 <a href="http://127.0.0.1:4000">http://127.0.0.1:4000</a>
 一个简单的blog就建成了</p>
 
@@ -56,25 +53,17 @@
 
 <p>首先你需要在github创建一个你的名称.github.io的项目（如：我的用户名为destinyd，项目名则为 destinyd.github.io）</p>
 
-<p>以我的blog提交作为范例</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>jekyll build
-</span><span class='line'>cd _site
-</span><span class='line'>git init
-</span><span class='line'>git add .
-</span><span class='line'>git commit -m 'first commit'
-</span><span class='line'>git remote add origin git@github.com:destinyd/destinyd.github.io.git
-</span><span class='line'>git push -u origin master</span></code></pre></td></tr></table></div></figure>
-
-
-<p>执行完就可以通过
+<p>以我的blog提交作为范例
+<code>
+jekyll build
+cd _site
+git init
+git add .
+git commit -m 'first commit'
+git remote add origin git@github.com:destinyd/destinyd.github.io.git
+git push -u origin master
+</code>
+执行完就可以通过
 <a href="http://destinyd.github.io">http://destinyd.github.io</a>
 访问了</p>
 ]]></content>
