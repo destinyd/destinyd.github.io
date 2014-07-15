@@ -1,12 +1,13 @@
+#source "http://rubygems.org"
 source "http://ruby.taobao.org"
 
 group :development do
   gem 'rake', '~> 10.0'
-  gem 'jekyll', '~> 2.0'
+  gem 'jekyll', '~> 2.1'
   gem 'jekyll-page-hooks', '~> 1.2'
   gem 'jekyll-date-format', '~> 1.0'
   gem 'jekyll-sitemap'
-  gem 'rdiscount', '~> 2.0'
+  gem 'rdiscount', '~> 2.1'
   gem 'RedCloth', '~> 4.2.9'
   gem 'haml', '~> 4.0'
   gem 'compass', '~> 0.12.2'
@@ -14,6 +15,7 @@ group :development do
   gem 'rubypants', '~> 0.2.0'
   gem 'rb-fsevent', '~> 0.9'
   gem 'stringex', '~> 1.4.0'
+  gem 'octopress-codefence'
 end
 
 gem 'sinatra', '~> 1.4.2'
