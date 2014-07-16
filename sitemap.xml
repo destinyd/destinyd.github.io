@@ -3,29 +3,41 @@
   
   
   <url>
-    <loc>http://destinyd.github.io/2014-07-08-jekyll-blog-to-github/</loc>
+    <loc>http://destinyd.me/2014-07-10-git-zen-me-qu-xiao-yi-jing-push-le-de-commit/</loc>
+    <lastmod>2014-07-10T19:10:51+00:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://destinyd.me/2014-07-09-yong-octopressda-jian-blog/</loc>
+    <lastmod>2014-07-09T20:00:16+00:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
+    <loc>http://destinyd.me/2014-07-08-jekyll-blog-to-github/</loc>
     <lastmod>2014-07-08T10:51:29+00:00</lastmod>
     <priority>0.8</priority>
   </url>
   
   
   <url>
-    <loc>http://destinyd.github.io/about-me/</loc>
-    <lastmod>2014-07-10T10:41:46+00:00</lastmod>
+    <loc>http://destinyd.me/about-me/</loc>
+    <lastmod>2014-07-16T20:07:19+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
-    <loc>http://destinyd.github.io/blog/archives/</loc>
-    <lastmod>2014-07-10T10:41:46+00:00</lastmod>
+    <loc>http://destinyd.me/blog/archives/</loc>
+    <lastmod>2014-07-16T20:07:19+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
-    <loc>http://destinyd.github.io/</loc>
-    <lastmod>2014-07-10T10:41:46+00:00</lastmod>
+    <loc>http://destinyd.me/</loc>
+    <lastmod>2014-07-16T20:07:19+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Git | DestinyD's Blog]]></title>
+  <link href="http://destinyd.me/blog/categories/git/atom.xml" rel="self"/>
+  <link href="http://destinyd.me/"/>
+  <updated>2014-07-16T20:07:19+00:00</updated>
+  <id>http://destinyd.me/</id>
+  <author>
+    <name><![CDATA[DestinyD]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Git怎么取消已经push了的commit]]></title>
+    <link href="http://destinyd.me/2014-07-10-git-zen-me-qu-xiao-yi-jing-push-le-de-commit/"/>
+    <updated>2014-07-10T19:10:51+00:00</updated>
+    <id>http://destinyd.me/git-zen-me-qu-xiao-yi-jing-push-le-de-commit</id>
+    <content type="html"><![CDATA[<p>使用版本管理工具管理项目，可能经常会遇到这些情况：
+* 发现某个commit包含了bug，但是已经push到版本库了，想在版本库取消掉它，修改之后重新commit
+* 已经上线了的功能想取消掉，这个commit包含了多个commit，均已push到版本库</p>
+
+<p>其实想要恢复还是挺简单的，git提供了一个revert指令，专门用于处理这样的事情。</p>
+
+<h2>取消掉某个commit</h2>
+
+<p>我们只需要执行：
+<code>
+git revert commit_id
+</code></p>
+
+<h2>取消掉多个commit</h2>
+
+<p>我们需要倒序的执行：
+<code>
+git revert commit_id1[ commit_id2 ...]
+</code></p>
+
+<p>操作起来相对麻烦，类似于<code>git reset HEAD~1 --soft</code>的HEAD~N是否有效本人也没有去证明，如果有需要你们可以自己尝试。</p>
+
+<p><strong>注意：</strong>
+<strong>commit_id 可以通过git log查看。</strong></p>
+
+<h2>注意</h2>
+
+<ul>
+<li>如果之后有基于此commit做了修改的话，你还需要解决冲突。</li>
+<li>此commit不可以再通过merge方式合并，你只能修改后重新</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>

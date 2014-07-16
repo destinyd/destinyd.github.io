@@ -5,13 +5,15 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>DestinyD's Blog</title>
+  <title>用octopress搭建blog - DestinyD's Blog</title>
   <meta name="author" content="DestinyD">
 
   
-  <meta name="description" content="使用版本管理工具管理项目，可能经常会遇到这些情况：
-* 发现某个commit包含了bug，但是已经push到版本库了，想在版本库取消掉它，修改之后重新commit
-* 已经上线了的功能想取消掉，这个commit包含了多个commit，均已push到版本库 其实想要恢复还是挺简单的， &hellip;">
+  <meta name="description" content="octopress是基于jekyll，添加了rake操作的网站框架，使用它可以比jekyll更加容易搭建网站。 1. 安装ruby 可以参考 rvm.io 2. 安装octopress 1
+2
+3
+git clone https://github.com/imathis/octopress
+cd &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -20,7 +22,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://destinyd.me">
+  <link rel="canonical" href="http://destinyd.me/2014-07-09-yong-octopressda-jian-blog">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="DestinyD's Blog" type="application/atom+xml">
@@ -60,84 +62,12 @@
 </nav>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
+      <div>
+<article class="hentry" role="article">
   
-  
-  
-    <article>
-      
   <header>
     
-      <h1 class="entry-title"><a href="/2014-07-10-git-zen-me-qu-xiao-yi-jing-push-le-de-commit/">Git怎么取消已经push了的commit</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-07-10T19:10:51+00:00" pubdate data-updated="true">Jul 10<sup>th</sup>, 2014</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>使用版本管理工具管理项目，可能经常会遇到这些情况：
-* 发现某个commit包含了bug，但是已经push到版本库了，想在版本库取消掉它，修改之后重新commit
-* 已经上线了的功能想取消掉，这个commit包含了多个commit，均已push到版本库</p>
-
-<p>其实想要恢复还是挺简单的，git提供了一个revert指令，专门用于处理这样的事情。</p>
-
-<h2>取消掉某个commit</h2>
-
-<p>我们只需要执行：</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git revert commit_id</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>取消掉多个commit</h2>
-
-<p>我们需要倒序的执行：</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git revert commit_id1[ commit_id2 ...]</span></code></pre></td></tr></table></div></figure>
-
-
-<p>操作起来相对麻烦，类似于<code>git reset HEAD~1 --soft</code>的HEAD~N是否有效本人也没有去证明，如果有需要你们可以自己尝试。</p>
-
-<p><strong>注意：</strong>
-<strong>commit_id 可以通过git log查看。</strong></p>
-
-<h2>注意</h2>
-
-<ul>
-<li>如果之后有基于此commit做了修改的话，你还需要解决冲突。</li>
-<li>此commit不可以再通过merge方式合并，你只能修改后重新</li>
-</ul>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2014-07-09-yong-octopressda-jian-blog/">用octopress搭建blog</a></h1>
+      <h1 class="entry-title">用octopress搭建blog</h1>
     
     
       <p class="meta">
@@ -160,7 +90,7 @@
   </header>
 
 
-  <div class="entry-content"><p>octopress是基于jekyll，添加了rake操作的网站框架，使用它可以比jekyll更加容易搭建网站。</p>
+<div class="entry-content"><p>octopress是基于jekyll，添加了rake操作的网站框架，使用它可以比jekyll更加容易搭建网站。</p>
 
 <h2>1. 安装ruby</h2>
 
@@ -292,22 +222,16 @@
 <p>去自己的域名运营商处修改:
 CNAME: destinyd.me => destinyd.github.com</p>
 </div>
-  
-  
 
 
-    </article>
-  
-  
-    <article>
+  <footer>
+    <p class="meta">
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/2014-07-08-jekyll-blog-to-github/">用jekyll建造blog并放到github上</a></h1>
-    
-    
-      <p class="meta">
-        
+  
+
+<span class="byline author vcard">Posted by <span class="fn">DestinyD</span></span>
+
+      
 
 
 
@@ -319,86 +243,41 @@ CNAME: destinyd.me => destinyd.github.com</p>
   
 
 
-<time datetime="2014-07-08T10:51:29+00:00" pubdate data-updated="true">Jul 8<sup>th</sup>, 2014</time>
-        
-      </p>
+<time datetime="2014-07-09T20:00:16+00:00" pubdate data-updated="true">Jul 9<sup>th</sup>, 2014</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/github/'>github</a>, <a class='category' href='/blog/categories/heroku/'>heroku</a>, <a class='category' href='/blog/categories/octopress/'>octopress</a>, <a class='category' href='/blog/categories/ruby/'>ruby</a>
+  
+</span>
+
+
+    </p>
     
-  </header>
-
-
-  <div class="entry-content"><p>jekyll是一个轻量级的网站框架，经常被用于建设github上的blog，</p>
-
-<h2>1. 安装ruby</h2>
-
-<p>可以参考 <a href="http://rvm.io">rvm.io</a></p>
-
-<h2>2. 安装jekyll</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>gem install jekyll</span></code></pre></td></tr></table></div></figure>
-
-
-<p>备注： 国内可能需要更换gem源，否则可能会因为被墙而不能正常安装。<a href="http://ruby.taobao.org">taobao源</a></p>
-
-<h2>3. 创建、并运行blog</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>jekyll new blog
-</span><span class='line'>cd blog
-</span><span class='line'>jekyll serve</span></code></pre></td></tr></table></div></figure>
-
-
-<p>这时候你可以打开浏览器直接访问
-<a href="http://127.0.0.1:4000">http://127.0.0.1:4000</a>
-一个简单的blog就建成了</p>
-
-<h2>4. 添加文章</h2>
-
-<p>打开<code>_posts/</code>你会发现有一篇以:year-:month-:day-:title.markdown命名的文章，你可以以此格式复制成你想要的名称，打开修改即可。</p>
-
-<p>文章默认使用markdown格式，你也可以使用textile，这个看个人喜好。</p>
-
-<h2>5. 部署到github</h2>
-
-<p>首先你需要在github创建一个你的名称.github.io的项目（如：我的用户名为destinyd，项目名则为 destinyd.github.io）</p>
-
-<p>以我的blog提交作为范例</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>jekyll build
-</span><span class='line'>cd _site
-</span><span class='line'>git init
-</span><span class='line'>git add .
-</span><span class='line'>git commit -m 'first commit'
-</span><span class='line'>git remote add origin git@github.com:destinyd/destinyd.github.io.git
-</span><span class='line'>git push -u origin master</span></code></pre></td></tr></table></div></figure>
-
-
-<p>执行完就可以通过
-<a href="http://destinyd.github.io">http://destinyd.github.io</a>
-访问了</p>
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://destinyd.me/2014-07-09-yong-octopressda-jian-blog/" data-via="DestinyDChan" data-counturl="http://destinyd.me/2014-07-09-yong-octopressda-jian-blog/" >Tweet</a>
+  
+  
+  
 </div>
-  
-  
 
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/2014-07-08-jekyll-blog-to-github/" title="Previous Post: 用jekyll建造blog并放到github上">&laquo; 用jekyll建造blog并放到github上</a>
+      
+      
+        <a class="basic-alignment right" href="/2014-07-10-git-zen-me-qu-xiao-yi-jing-push-le-de-commit/" title="Next Post: git怎么取消已经push了的commit">git怎么取消已经push了的commit &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
 
-    </article>
-  
-  <div class="pagination">
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
 </div>
-<aside class="sidebar">
+
+  <aside class="sidebar">
    
 <form action="https://www.google.com/search" method="get">
   <fieldset role="search">
@@ -410,7 +289,7 @@ CNAME: destinyd.me => destinyd.github.com</p>
   
     <section>
   <h1>关于我</h1>
-  <p>身兼18般武艺(ruby、java、php、javascript&#8230;)的程序猿，应用实践派，实用主义者。以远程工作加外包项目为生。</p>
+  <p>身兼18般武艺(ruby、java、php、javascript...)的程序猿，应用实践派，实用主义者。以远程工作加外包项目为生。</p>
   <p>承接网站开发、android应用开发、微信平台搭建。同时也欢迎hr、猎头找我洽谈远程工作。</p>
 </section>
 <section>
@@ -439,7 +318,7 @@ CNAME: destinyd.me => destinyd.github.com</p>
 <section>
   <h1>GitHub Repos</h1>
   <ul id="gh_repos">
-    <li class="loading">Status updating&#8230;</li>
+    <li class="loading">Status updating...</li>
   </ul>
   
   <a href="https://github.com/destinyd">@destinyd</a> on GitHub
@@ -471,6 +350,7 @@ CNAME: destinyd.me => destinyd.github.com</p>
 
   
 </aside>
+
 
 
     </div>

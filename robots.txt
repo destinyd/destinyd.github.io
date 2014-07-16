@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: 
 
-Sitemap: http://destinyd.github.io/sitemap.xml 
+Sitemap: http://destinyd.me/sitemap.xml 

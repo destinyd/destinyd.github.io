@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Jekyll | DestinyD's Blog]]></title>
-  <link href="http://destinyd.github.io/blog/categories/jekyll/atom.xml" rel="self"/>
-  <link href="http://destinyd.github.io/"/>
-  <updated>2014-07-10T10:41:46+00:00</updated>
-  <id>http://destinyd.github.io/</id>
+  <link href="http://destinyd.me/blog/categories/jekyll/atom.xml" rel="self"/>
+  <link href="http://destinyd.me/"/>
+  <updated>2014-07-16T20:07:19+00:00</updated>
+  <id>http://destinyd.me/</id>
   <author>
     <name><![CDATA[DestinyD]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[用jekyll建造blog并放到github上]]></title>
-    <link href="http://destinyd.github.io/2014-07-08-jekyll-blog-to-github/"/>
+    <link href="http://destinyd.me/2014-07-08-jekyll-blog-to-github/"/>
     <updated>2014-07-08T10:51:29+00:00</updated>
-    <id>http://destinyd.github.io/jekyll-blog-to-github</id>
+    <id>http://destinyd.me/jekyll-blog-to-github</id>
     <content type="html"><![CDATA[<p>jekyll是一个轻量级的网站框架，经常被用于建设github上的blog，</p>
 
 <h2>1. 安装ruby</h2>
@@ -26,20 +26,19 @@
 
 <h2>2. 安装jekyll</h2>
 
-<p><code>
-gem install jekyll
-</code></p>
+<pre><code>gem install jekyll
+</code></pre>
 
 <p>备注： 国内可能需要更换gem源，否则可能会因为被墙而不能正常安装。<a href="http://ruby.taobao.org">taobao源</a></p>
 
 <h2>3. 创建、并运行blog</h2>
 
-<p><code>
-jekyll new blog
+<pre><code>jekyll new blog
 cd blog
 jekyll serve
-</code>
-这时候你可以打开浏览器直接访问
+</code></pre>
+
+<p>这时候你可以打开浏览器直接访问
 <a href="http://127.0.0.1:4000">http://127.0.0.1:4000</a>
 一个简单的blog就建成了</p>
 
