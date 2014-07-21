@@ -4,7 +4,7 @@
   <title><![CDATA[DestinyD's Blog]]></title>
   <link href="http://destinyd.me/atom.xml" rel="self"/>
   <link href="http://destinyd.me/"/>
-  <updated>2014-07-16T20:07:19+00:00</updated>
+  <updated>2014-07-21T10:59:06+00:00</updated>
   <id>http://destinyd.me/</id>
   <author>
     <name><![CDATA[DestinyD]]></name>
@@ -12,6 +12,33 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Git在remote端清除tag]]></title>
+    <link href="http://destinyd.me/2014-07-21-git-zai-remote-duan-qing-chu-tag/"/>
+    <updated>2014-07-21T10:53:31+00:00</updated>
+    <id>http://destinyd.me/git-zai-remote-duan-qing-chu-tag</id>
+    <content type="html"><![CDATA[<p>最新在弄maven的archetypes遇到点问题，使用其插件部署时会生产tag并且自动提交版本库。</p>
+
+<p>但是我忘记使用gpg签名，而我不想手工下载从新签名。</p>
+
+<p>我把之前的提交全部revert了，但是部署的时候提示remote端tag已经存在。</p>
+
+<p>搜索了一下怎么解决这个问题，才发现其实也挺简单的：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git tag -d 12345
+</span><span class='line'>git push origin :refs/tags/12345</span></code></pre></td></tr></table></div></figure>
+
+
+<p>也就2句命令而已。</p>
+
+<p>然后我再次revert了已经push的commit，重新部署，一切问题解决。</p>
+
+<p>看来玩好git也是门艺术。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Git怎么取消已经push了的commit]]></title>

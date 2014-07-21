@@ -9,9 +9,8 @@
   <meta name="author" content="DestinyD">
 
   
-  <meta name="description" content="使用版本管理工具管理项目，可能经常会遇到这些情况：
-* 发现某个commit包含了bug，但是已经push到版本库了，想在版本库取消掉它，修改之后重新commit
-* 已经上线了的功能想取消掉，这个commit包含了多个commit，均已push到版本库 其实想要恢复还是挺简单的， &hellip;">
+  <meta name="description" content="最新在弄maven的archetypes遇到点问题，使用其插件部署时会生产tag并且自动提交版本库。 但是我忘记使用gpg签名，而我不想手工下载从新签名。 我把之前的提交全部revert了，但是部署的时候提示remote端tag已经存在。 搜索了一下怎么解决这个问题，才发现其实也挺简单的： 1
+2 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -62,6 +61,60 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2014-07-21-git-zai-remote-duan-qing-chu-tag/">Git在remote端清除tag</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-07-21T10:53:31+00:00" pubdate data-updated="true">Jul 21<sup>st</sup>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>最新在弄maven的archetypes遇到点问题，使用其插件部署时会生产tag并且自动提交版本库。</p>
+
+<p>但是我忘记使用gpg签名，而我不想手工下载从新签名。</p>
+
+<p>我把之前的提交全部revert了，但是部署的时候提示remote端tag已经存在。</p>
+
+<p>搜索了一下怎么解决这个问题，才发现其实也挺简单的：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git tag -d 12345
+</span><span class='line'>git push origin :refs/tags/12345</span></code></pre></td></tr></table></div></figure>
+
+
+<p>也就2句命令而已。</p>
+
+<p>然后我再次revert了已经push的commit，重新部署，一切问题解决。</p>
+
+<p>看来玩好git也是门艺术。</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -418,6 +471,10 @@ CNAME: destinyd.me => destinyd.github.com</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2014-07-21-git-zai-remote-duan-qing-chu-tag/">Git在remote端清除tag</a>
+      </li>
+    
+      <li class="post">
         <a href="/2014-07-10-git-zen-me-qu-xiao-yi-jing-push-le-de-commit/">Git怎么取消已经push了的commit</a>
       </li>
     
@@ -433,7 +490,7 @@ CNAME: destinyd.me => destinyd.github.com</p>
 </section>
 <section>
   <h1>Tag Cloud</h1>
-    <span id="tag-cloud"><a href='/blog/categories/git' style='font-size: 130.0%'>git(1)</a> <a href='/blog/categories/github' style='font-size: 160.0%'>github(2)</a> <a href='/blog/categories/heroku' style='font-size: 130.0%'>heroku(1)</a> <a href='/blog/categories/jekyll' style='font-size: 130.0%'>jekyll(1)</a> <a href='/blog/categories/octopress' style='font-size: 130.0%'>octopress(1)</a> <a href='/blog/categories/ruby' style='font-size: 160.0%'>ruby(2)</a> </span>
+    <span id="tag-cloud"><a href='/blog/categories/git' style='font-size: 160.0%'>git(2)</a> <a href='/blog/categories/github' style='font-size: 160.0%'>github(2)</a> <a href='/blog/categories/heroku' style='font-size: 130.0%'>heroku(1)</a> <a href='/blog/categories/jekyll' style='font-size: 130.0%'>jekyll(1)</a> <a href='/blog/categories/octopress' style='font-size: 130.0%'>octopress(1)</a> <a href='/blog/categories/ruby' style='font-size: 160.0%'>ruby(2)</a> </span>
 </section>
 
 <section>
