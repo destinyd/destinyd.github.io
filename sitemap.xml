@@ -29,24 +29,30 @@
   
   <url>
     <loc>http://destinyd.me/about-me/</loc>
-    <lastmod>2014-07-21T10:59:06+00:00</lastmod>
+    <lastmod>2014-07-21T11:19:10+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://destinyd.me/blog/archives/</loc>
-    <lastmod>2014-07-21T10:59:06+00:00</lastmod>
+    <lastmod>2014-07-21T11:19:10+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://destinyd.me/</loc>
-    <lastmod>2014-07-21T10:59:06+00:00</lastmod>
+    <lastmod>2014-07-21T11:19:10+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   
+  
+  <url>
+    <loc>http://destinyd.me/googlee201fb7a3597a9d9.html</loc>
+    <lastmod>2014-07-21T11:19:1405941546Z</lastmod>
+    <priority>0.6</priority>
+  </url>
   
 </urlset>
