@@ -3,6 +3,12 @@
   
   
   <url>
+    <loc>http://destinyd.me/2014-07-22-gradle-ru-he-yin-yong-maven-ku-de-xiang-mu/</loc>
+    <lastmod>2014-07-22T15:40:29+00:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
     <loc>http://destinyd.me/2014-07-21-git-zai-remote-duan-qing-chu-tag/</loc>
     <lastmod>2014-07-21T10:53:31+00:00</lastmod>
     <priority>0.8</priority>
@@ -29,21 +35,21 @@
   
   <url>
     <loc>http://destinyd.me/about-me/</loc>
-    <lastmod>2014-07-21T11:30:14+00:00</lastmod>
+    <lastmod>2014-07-22T11:51:42+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://destinyd.me/blog/archives/</loc>
-    <lastmod>2014-07-21T11:30:14+00:00</lastmod>
+    <lastmod>2014-07-22T11:51:42+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://destinyd.me/</loc>
-    <lastmod>2014-07-21T11:30:14+00:00</lastmod>
+    <lastmod>2014-07-22T11:51:42+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>

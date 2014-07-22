@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Android | DestinyD's Blog]]></title>
+  <link href="http://destinyd.me/blog/categories/android/atom.xml" rel="self"/>
+  <link href="http://destinyd.me/"/>
+  <updated>2014-07-22T11:51:42+00:00</updated>
+  <id>http://destinyd.me/</id>
+  <author>
+    <name><![CDATA[DestinyD]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Gradle 如何引用 Maven 库的项目]]></title>
+    <link href="http://destinyd.me/2014-07-22-gradle-ru-he-yin-yong-maven-ku-de-xiang-mu/"/>
+    <updated>2014-07-22T15:40:29+00:00</updated>
+    <id>http://destinyd.me/gradle-ru-he-yin-yong-maven-ku-de-xiang-mu</id>
+    <content type="html"><![CDATA[<h2>问题</h2>
+
+<p>由于项目模块独立化，部分同事使用的是android studio，即使用gradle管理android项目。</p>
+
+<p>然后组件大多是maven项目，存于maven本地库。</p>
+
+<p>一般引用为：
+<code>
+dependencies {
+    compile project(':menudrawer')
+    compile 'com.actionbarsherlock:actionbarsherlock:4.4.0@aar'
+    compile 'com.android.support:support-v4:19.0.1'
+    compile 'com.github.destinyd.kcextraimageview:kcextraimageview:0.1.0'
+}
+</code>
+前一项为工程内项目，2、3项为经maven中心库项目，第4项为未提交到maven中心库的本地库项目。</p>
+
+<p>测试<a href="https://github.com/destinyd/kcextraimageview"><strong>第4项</strong></a>出错，不管是否已经使用<strong>mvn clean install</strong>安装到本地库。</p>
+
+<h2>解决</h2>
+
+<p>万能的google查询了下解决方法，发现：
+<code>
+repositories {
+    mavenCentral()
+}
+</code>
+改为
+<code>
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+</code>
+即可。</p>
+
+<h2>结论</h2>
+
+<p>gradle项目默认配置文件是不使用maven本地库，如果需要需进行设置。</p>
+
+<h2>组件介绍</h2>
+
+<p><a href="https://github.com/destinyd/kcextraimageview"><strong>Extra Image View</strong></a>是一个集合拖动、双手操作的高级图片组件，有兴趣的可以尝试使用，欢迎各位提供各种意见和建议。</p>
+]]></content>
+  </entry>
+  
+</feed>

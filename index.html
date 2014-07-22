@@ -9,8 +9,13 @@
   <meta name="author" content="DestinyD">
 
   
-  <meta name="description" content="最新在弄maven的archetypes遇到点问题，使用其插件部署时会生产tag并且自动提交版本库。 但是我忘记使用gpg签名，而我不想手工下载从新签名。 我把之前的提交全部revert了，但是部署的时候提示remote端tag已经存在。 搜索了一下怎么解决这个问题，才发现其实也挺简单的： 1
-2 &hellip;">
+  <meta name="description" content="问题 由于项目模块独立化，部分同事使用的是android studio，即使用gradle管理android项目。 然后组件大多是maven项目，存于maven本地库。 一般引用为： 1
+2
+3
+4
+5
+6
+dependencies { compile project(':menudrawer &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -73,6 +78,100 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2014-07-22-gradle-ru-he-yin-yong-maven-ku-de-xiang-mu/">Gradle 如何引用 Maven 库的项目</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-07-22T15:40:29+00:00" pubdate data-updated="true">Jul 22<sup>nd</sup>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>问题</h2>
+
+<p>由于项目模块独立化，部分同事使用的是android studio，即使用gradle管理android项目。</p>
+
+<p>然后组件大多是maven项目，存于maven本地库。</p>
+
+<p>一般引用为：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>dependencies {
+</span><span class='line'>    compile project(':menudrawer')
+</span><span class='line'>    compile 'com.actionbarsherlock:actionbarsherlock:4.4.0@aar'
+</span><span class='line'>    compile 'com.android.support:support-v4:19.0.1'
+</span><span class='line'>    compile 'com.github.destinyd.kcextraimageview:kcextraimageview:0.1.0'
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>前一项为工程内项目，2、3项为经maven中心库项目，第4项为未提交到maven中心库的本地库项目。</p>
+
+<p>测试<a href="https://github.com/destinyd/kcextraimageview"><strong>第4项</strong></a>出错，不管是否已经使用<strong>mvn clean install</strong>安装到本地库。</p>
+
+<h2>解决</h2>
+
+<p>万能的google查询了下解决方法，发现：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>repositories {
+</span><span class='line'>    mavenCentral()
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>改为</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>repositories {
+</span><span class='line'>    mavenLocal()
+</span><span class='line'>    mavenCentral()
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>即可。</p>
+
+<h2>结论</h2>
+
+<p>gradle项目默认配置文件是不使用maven本地库，如果需要需进行设置。</p>
+
+<h2>组件介绍</h2>
+
+<p><a href="https://github.com/destinyd/kcextraimageview"><strong>Extra Image View</strong></a>是一个集合拖动、双手操作的高级图片组件，有兴趣的可以尝试使用，欢迎各位提供各种意见和建议。</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -483,6 +582,10 @@ CNAME: destinyd.me => destinyd.github.com</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2014-07-22-gradle-ru-he-yin-yong-maven-ku-de-xiang-mu/">Gradle 如何引用 Maven 库的项目</a>
+      </li>
+    
+      <li class="post">
         <a href="/2014-07-21-git-zai-remote-duan-qing-chu-tag/">Git在remote端清除tag</a>
       </li>
     
@@ -502,7 +605,7 @@ CNAME: destinyd.me => destinyd.github.com</p>
 </section>
 <section>
   <h1>Tag Cloud</h1>
-    <span id="tag-cloud"><a href='/blog/categories/git' style='font-size: 160.0%'>git(2)</a> <a href='/blog/categories/github' style='font-size: 160.0%'>github(2)</a> <a href='/blog/categories/heroku' style='font-size: 130.0%'>heroku(1)</a> <a href='/blog/categories/jekyll' style='font-size: 130.0%'>jekyll(1)</a> <a href='/blog/categories/octopress' style='font-size: 130.0%'>octopress(1)</a> <a href='/blog/categories/ruby' style='font-size: 160.0%'>ruby(2)</a> </span>
+    <span id="tag-cloud"><a href='/blog/categories/android' style='font-size: 130.0%'>android(1)</a> <a href='/blog/categories/git' style='font-size: 160.0%'>git(2)</a> <a href='/blog/categories/github' style='font-size: 160.0%'>github(2)</a> <a href='/blog/categories/gradle' style='font-size: 130.0%'>gradle(1)</a> <a href='/blog/categories/heroku' style='font-size: 130.0%'>heroku(1)</a> <a href='/blog/categories/jekyll' style='font-size: 130.0%'>jekyll(1)</a> <a href='/blog/categories/maven' style='font-size: 130.0%'>maven(1)</a> <a href='/blog/categories/octopress' style='font-size: 130.0%'>octopress(1)</a> <a href='/blog/categories/ruby' style='font-size: 160.0%'>ruby(2)</a> </span>
 </section>
 
 <section>
@@ -550,6 +653,19 @@ CNAME: destinyd.me => destinyd.github.com</p>
 
 </footer>
   
+
+<script type="text/javascript">
+      var disqus_shortname = 'destinyd';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
 
 
 
