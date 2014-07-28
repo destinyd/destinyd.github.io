@@ -3,6 +3,12 @@
   
   
   <url>
+    <loc>http://destinyd.me/2014-07-27-ru-he-zai-coffee-script-de-class-zhong-gou-jian-ke-hui-diao-de-han-shu/</loc>
+    <lastmod>2014-07-27T09:24:36+00:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
     <loc>http://destinyd.me/2014-07-22-gradle-ru-he-yin-yong-maven-ku-de-xiang-mu/</loc>
     <lastmod>2014-07-22T15:40:29+00:00</lastmod>
     <priority>0.8</priority>
@@ -35,21 +41,21 @@
   
   <url>
     <loc>http://destinyd.me/about-me/</loc>
-    <lastmod>2014-07-22T11:51:42+00:00</lastmod>
+    <lastmod>2014-07-28T10:11:04+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://destinyd.me/blog/archives/</loc>
-    <lastmod>2014-07-22T11:51:42+00:00</lastmod>
+    <lastmod>2014-07-28T10:11:04+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://destinyd.me/</loc>
-    <lastmod>2014-07-22T11:51:42+00:00</lastmod>
+    <lastmod>2014-07-28T10:11:04+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>

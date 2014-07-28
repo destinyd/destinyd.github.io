@@ -4,7 +4,7 @@
   <title><![CDATA[DestinyD's Blog]]></title>
   <link href="http://destinyd.me/atom.xml" rel="self"/>
   <link href="http://destinyd.me/"/>
-  <updated>2014-07-22T11:51:42+00:00</updated>
+  <updated>2014-07-28T10:11:04+00:00</updated>
   <id>http://destinyd.me/</id>
   <author>
     <name><![CDATA[DestinyD]]></name>
@@ -12,6 +12,110 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[如何在coffeescript的class中构建可回调的函数]]></title>
+    <link href="http://destinyd.me/2014-07-27-ru-he-zai-coffee-script-de-class-zhong-gou-jian-ke-hui-diao-de-han-shu/"/>
+    <updated>2014-07-27T09:24:36+00:00</updated>
+    <id>http://destinyd.me/ru-he-zai-coffee-script-de-class-zhong-gou-jian-ke-hui-diao-de-han-shu</id>
+    <content type="html"><![CDATA[<p>coffeescript想必大家都知道在很多时候并不是想象中的那么好用，例如：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>class A
+</span><span class='line'>  constructor: (options) -&gt;
+</span><span class='line'>    @tmp = 1
+</span><span class='line'>    $('.string').click @func
+</span><span class='line'>  func: -&gt;
+</span><span class='line'>    console.log @tmp # undefined</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>看提示或者自己测试你会发现alert的结果是<strong>undefined</strong>，为什么会这样呢？</h3>
+
+<p>因为@其实代替的是<strong>this.</strong>。
+了解jquery的应该知道而，在func中的this其实是<strong>$(&lsquo;#a&rsquo;)</strong>。</p>
+
+<p>大家可以在func中添加</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>console.log @
+</span><span class='line'>console.log this</span></code></pre></td></tr></table></div></figure>
+
+
+<p>查看this是到底是什么。（@和this其实是相同的）</p>
+
+<h3>那么我们怎么才能在func中调用到class A中的其他变量或者函数呢？</h3>
+
+<p>coffeescript提供了<strong>=></strong>即闭包符号，我们试试看改成=>看看会是什么效果</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>class A
+</span><span class='line'>  constructor: (options) -&gt;
+</span><span class='line'>    @tmp = 1
+</span><span class='line'>    $('.string').click @func
+</span><span class='line'>  func: =&gt;
+</span><span class='line'>    console.log @tmp # 1</span></code></pre></td></tr></table></div></figure>
+
+
+<p>这是大家想要的结果了。</p>
+
+<h3>那么嵌套呢？</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>class A
+</span><span class='line'>  constructor: (options) -&gt;
+</span><span class='line'>    @tmp1 = 1
+</span><span class='line'>    @tmp2 = 1
+</span><span class='line'>    $('.string').click @build
+</span><span class='line'>  build: =&gt;
+</span><span class='line'>    console.log @tmp1 # 1
+</span><span class='line'>    $('.string').click @func
+</span><span class='line'>  func: =&gt;
+</span><span class='line'>    console.log @tmp2 # 2</span></code></pre></td></tr></table></div></figure>
+
+
+<p>实测也是可行的</p>
+
+<h3>还有没有更复杂的情况？</h3>
+
+<p>的确是有的，不可能任何时候你都使用<strong>=></strong>，但是此时我们又想他能调用class内的函数怎么办？</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>class B
+</span><span class='line'>  constructor:
+</span><span class='line'>    @tmp = 1
+</span><span class='line'>    $('#modal').on 'shown.bs.modal', (e) =&gt; @build(e)
+</span><span class='line'>  build: -&gt;
+</span><span class='line'>    console.log @tmp # 1</span></code></pre></td></tr></table></div></figure>
+
+
+<p>通过<strong>(e) => @build(e)</strong>即可达到在<strong>build函数</strong>闭包的效果。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Gradle 如何引用 Maven 库的项目]]></title>

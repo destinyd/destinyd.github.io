@@ -5,11 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Category: Gradle - DestinyD's Blog</title>
+  <title>DestinyD's Blog</title>
   <meta name="author" content="DestinyD">
 
   
-  <meta name="description" content="Category: gradle">
+  <meta name="description" content="jekyll是一个轻量级的网站框架，经常被用于建设github上的blog， 1. 安装ruby 可以参考 rvm.io 2. 安装jekyll 1
+gem install jekyll 备注： 国内可能需要更换gem源，否则可能会因为被墙而不能正常安装。taobao源 3. 创建、并运行blog &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://destinyd.me/blog/categories/gradle">
+  <link rel="canonical" href="http://destinyd.me/posts-2">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="DestinyD's Blog" type="application/atom+xml">
@@ -70,41 +71,112 @@
 </nav>
   <div id="main">
     <div id="content">
-      <div>
-<article role="article">
+      <div class="blog-index">
   
+  
+  
+    <article>
+      
   <header>
-    <h1 class="entry-title">Category: Gradle</h1>
+    
+      <h1 class="entry-title"><a href="/2014-07-08-jekyll-blog-to-github/">用jekyll建造blog并放到github上</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-07-08T10:51:29+00:00" pubdate data-updated="true">Jul 8<sup>th</sup>, 2014</time>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives" class="category">
 
 
+  <div class="entry-content"><p>jekyll是一个轻量级的网站框架，经常被用于建设github上的blog，</p>
 
-  
-  <h2>2014</h2>
+<h2>1. 安装ruby</h2>
 
-<article>
-  
-<h1><a href="/2014-07-22-gradle-ru-he-yin-yong-maven-ku-de-xiang-mu/">Gradle 如何引用 Maven 库的项目</a></h1>
-<time datetime="2014-07-22T15:40:29+00:00" pubdate><span class='month'>Jul</span> <span class='day'>22</span> <span class='year'>2014</span></time>
+<p>可以参考 <a href="http://rvm.io">rvm.io</a></p>
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/android/'>android</a>, <a class='category' href='/blog/categories/gradle/'>gradle</a>, <a class='category' href='/blog/categories/maven/'>maven</a></span>
-</footer>
+<h2>2. 安装jekyll</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>gem install jekyll</span></code></pre></td></tr></table></div></figure>
 
 
-</article>
+<p>备注： 国内可能需要更换gem源，否则可能会因为被墙而不能正常安装。<a href="http://ruby.taobao.org">taobao源</a></p>
 
+<h2>3. 创建、并运行blog</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>jekyll new blog
+</span><span class='line'>cd blog
+</span><span class='line'>jekyll serve</span></code></pre></td></tr></table></div></figure>
+
+
+<p>这时候你可以打开浏览器直接访问
+<a href="http://127.0.0.1:4000">http://127.0.0.1:4000</a>
+一个简单的blog就建成了</p>
+
+<h2>4. 添加文章</h2>
+
+<p>打开<code>_posts/</code>你会发现有一篇以:year-:month-:day-:title.markdown命名的文章，你可以以此格式复制成你想要的名称，打开修改即可。</p>
+
+<p>文章默认使用markdown格式，你也可以使用textile，这个看个人喜好。</p>
+
+<h2>5. 部署到github</h2>
+
+<p>首先你需要在github创建一个你的名称.github.io的项目（如：我的用户名为destinyd，项目名则为 destinyd.github.io）</p>
+
+<p>以我的blog提交作为范例</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>jekyll build
+</span><span class='line'>cd _site
+</span><span class='line'>git init
+</span><span class='line'>git add .
+</span><span class='line'>git commit -m 'first commit'
+</span><span class='line'>git remote add origin git@github.com:destinyd/destinyd.github.io.git
+</span><span class='line'>git push -u origin master</span></code></pre></td></tr></table></div></figure>
+
+
+<p>执行完就可以通过
+<a href="http://destinyd.github.io">http://destinyd.github.io</a>
+访问了</p>
 </div>
-
   
-</article>
+  
 
+
+    </article>
+  
+  <div class="pagination">
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="1">Newer &rarr;</a>
+    
+  </div>
 </div>
-
-  <aside class="sidebar">
+<aside class="sidebar">
    
 <form action="https://www.google.com/search" method="get">
   <fieldset role="search">
@@ -116,7 +188,7 @@
   
     <section>
   <h1>关于我</h1>
-  <p>身兼18般武艺(ruby、java、php、javascript...)的程序猿，应用实践派，实用主义者。以远程工作加外包项目为生。</p>
+  <p>身兼18般武艺(ruby、java、php、javascript&#8230;)的程序猿，应用实践派，实用主义者。以远程工作加外包项目为生。</p>
   <p>承接网站开发、android应用开发、微信平台搭建。同时也欢迎hr、猎头找我洽谈远程工作。</p>
 </section>
 <section>
@@ -153,7 +225,7 @@
 <section>
   <h1>GitHub Repos</h1>
   <ul id="gh_repos">
-    <li class="loading">Status updating...</li>
+    <li class="loading">Status updating&#8230;</li>
   </ul>
   
   <a href="https://github.com/destinyd">@destinyd</a> on GitHub
@@ -185,7 +257,6 @@
 
   
 </aside>
-
 
 
     </div>
