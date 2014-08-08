@@ -4,7 +4,7 @@
   <title><![CDATA[DestinyD's Blog]]></title>
   <link href="http://destinyd.me/atom.xml" rel="self"/>
   <link href="http://destinyd.me/"/>
-  <updated>2014-07-28T10:11:04+00:00</updated>
+  <updated>2014-08-08T20:02:53+00:00</updated>
   <id>http://destinyd.me/</id>
   <author>
     <name><![CDATA[DestinyD]]></name>
@@ -12,6 +12,83 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Maven 给 Android 应用打包，因为调用本地 Jar，运行不成功的解决方案]]></title>
+    <link href="http://destinyd.me/2014-08-08-maven-gei-android-ying-yong-da-bao-yin-wei-diao-yong-ben-di-jar-yun-xing-bu-cheng-gong-de-jie-jue-fang-an/"/>
+    <updated>2014-08-08T19:44:15+00:00</updated>
+    <id>http://destinyd.me/maven-gei-android-ying-yong-da-bao-yin-wei-diao-yong-ben-di-jar-yun-xing-bu-cheng-gong-de-jie-jue-fang-an</id>
+    <content type="html"><![CDATA[<p>做过实际应用发布的人都知道，会应用到很多类似与umeng、友推等第三方库，一般都是jar格式的。</p>
+
+<p>本人做开发，觉得maven用的很爽，所以就一直再没建过adt形式的应用工程。</p>
+
+<p>但是现在发布的时候遇到了问题，apk使用IDE运行的时候正常，但是用maven打包的apk，不能正常运行，提示：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>java.lang.NoClassDefFoundError: cn.bidaround.youtui_template.YtTemplate</span></code></pre></td></tr></table></div></figure>
+
+
+<p>看提示肯定是打包时候友推的template这个jar没有引入</p>
+
+<p>maven依赖代码如下：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;dependency&gt;
+</span><span class='line'>  &lt;groupId&gt;youtui&lt;/groupId&gt;
+</span><span class='line'>  &lt;artifactId&gt;template&lt;/artifactId&gt;
+</span><span class='line'>  &lt;version&gt;1.0&lt;/version&gt;
+</span><span class='line'>  &lt;scope&gt;system&lt;/scope&gt;
+</span><span class='line'>  &lt;systemPath&gt;${project.basedir}/libs/youtui-template.jar&lt;/systemPath&gt;
+</span><span class='line'>&lt;/dependency&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<p>直接用这个错误搜索不到结果，看来用了友推的不是maven工程？（瞬间觉得高大上）还是友推还小众？（难道我选择有误？）</p>
+
+<p>搜索了一下有关system scope的依赖，发现了解决方法</p>
+
+<h3>首先，我们需要把jar安装至本地maven库</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>mvn install:install-file -Dfile=app/libs/youtui-template.jar -DgroupId=youtui -DartifactId=template -Dversion=1.0 -Dpackaging=jar</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>然后，我们得把scope改成compile，并去除systemPath</h3>
+
+<p>修改结果如下</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;dependency&gt;
+</span><span class='line'>    &lt;groupId&gt;youtui&lt;/groupId&gt;
+</span><span class='line'>    &lt;artifactId&gt;template&lt;/artifactId&gt;
+</span><span class='line'>    &lt;scope&gt;compile&lt;/scope&gt;
+</span><span class='line'>    &lt;version&gt;1.0&lt;/version&gt;
+</span><span class='line'>&lt;/dependency&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>最后重新打包测试</h3>
+
+<p>模拟器运行后，错误没有再次出现！</p>
+
+<h3>后话</h3>
+
+<p>很多人现在都开始使用Android Studio、Intellij Idea等开发工具，而不是单纯的使用ADT。</p>
+
+<p>Maven、Gradle等东西不断的被引入，Gradle不是不喜欢，而是2.0至今在各IDE都未能很好的整合，让我很是不爽，而且Gradle也依赖于Maven，所以使用Maven是我的选择。</p>
+
+<p>如果有哪位喜欢Maven的，请留言，看情况和是，我不断的放出Maven的教程，帮助各位更好、更快的学习。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[如何在coffeescript的class中构建可回调的函数]]></title>

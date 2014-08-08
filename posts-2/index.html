@@ -9,8 +9,11 @@
   <meta name="author" content="DestinyD">
 
   
-  <meta name="description" content="jekyll是一个轻量级的网站框架，经常被用于建设github上的blog， 1. 安装ruby 可以参考 rvm.io 2. 安装jekyll 1
-gem install jekyll 备注： 国内可能需要更换gem源，否则可能会因为被墙而不能正常安装。taobao源 3. 创建、并运行blog &hellip;">
+  <meta name="description" content="octopress是基于jekyll，添加了rake操作的网站框架，使用它可以比jekyll更加容易搭建网站。 1. 安装ruby 可以参考 rvm.io 2. 安装octopress 1
+2
+3
+git clone https://github.com/imathis/octopress
+cd &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -73,6 +76,172 @@ gem install jekyll 备注： 国内可能需要更换gem源，否则可能会因
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2014-07-09-yong-octopressda-jian-blog/">用octopress搭建blog</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-07-09T20:00:16+00:00" pubdate data-updated="true">Jul 9<sup>th</sup>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>octopress是基于jekyll，添加了rake操作的网站框架，使用它可以比jekyll更加容易搭建网站。</p>
+
+<h2>1. 安装ruby</h2>
+
+<p>可以参考 <a href="http://rvm.io">rvm.io</a></p>
+
+<h2>2. 安装octopress</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git clone https://github.com/imathis/octopress
+</span><span class='line'>cd octopress
+</span><span class='line'>bundle install</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>3. 创建微博文章、页面</h2>
+
+<p>你可以通过以下指令创建微博文章</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rake new_post</span></code></pre></td></tr></table></div></figure>
+
+
+<p>执行后会提示你输入文章标题，可以为中文。</p>
+
+<p>之后会在<strong>source/_posts</strong>下生成文章文件，改写成你想要的内容，格式为markdown。</p>
+
+<p>你可以通过以下指令创建页面</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rake new_page[page_file_name]</span></code></pre></td></tr></table></div></figure>
+
+
+<p>执行后会在source下生成<strong>source/page_file_name/index.markdown</strong>，修改成你想要的页面。</p>
+
+<h2>4. 本地预览</h2>
+
+<p>本地预览其实很简单，执行</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rake preview</span></code></pre></td></tr></table></div></figure>
+
+
+<p>会监听4000端口，你可以通过
+<a href="http://localhost:4000">http://localhost:4000</a>
+访问，预览网站。</p>
+
+<h2>5. 部署</h2>
+
+<h3>5.1 部署到github</h3>
+
+<p>部署到github相对简单的多</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rake setup_github_pages[repo]</span></code></pre></td></tr></table></div></figure>
+
+
+<p>将repo改成你的repo地址就ok了，如我的是<a href="https://github.com/destinyd/destinyd.github.io">https://github.com/destinyd/destinyd.github.io</a></p>
+
+<p>然后执行</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rake generate
+</span><span class='line'>rake deploy</span></code></pre></td></tr></table></div></figure>
+
+
+<p>则会生成最新文章并部署到github，然后可以通过用户名.github.io访问，例如我的为
+<a href="http://destinyd.github.io">http://destinyd.github.io</a></p>
+
+<h3>5.2 部署到heroku</h3>
+
+<p>安装heroku工具的步骤就省略了</p>
+
+<p>首先需要创建一个heroku app</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>heroku create</span></code></pre></td></tr></table></div></figure>
+
+
+<p>然后生成最新的网站内容，并上传到heroku</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rake generate
+</span><span class='line'>git push heroku master</span></code></pre></td></tr></table></div></figure>
+
+
+<p>最后打开访问</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>heroku open</span></code></pre></td></tr></table></div></figure>
+
+
+<p>部署一个blog也不难嘛，对吧！</p>
+
+<h2>其他</h2>
+
+<h3>更改octopress配置</h3>
+
+<p>在<strong>_config.yml</strong>文件中可以看到octopress的各种配置，例如blog名称、下标题、网址、作者名称等，可以更改为你自己的然后从新<strong>rake generate</strong>生成新网站。</p>
+
+<h3>更换博客主题</h3>
+
+<p><a href="https://github.com/imathis/octopress/wiki/3rd-Party-Octopress-Themes">octopress第三方主题</a>
+这上面提供很多用户自制的主题，可以很简单的直接拿来使用，只需要执行：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git clone GIT_URL .themes/THEME_NAME
+</span><span class='line'>rake install['THEME_NAME']
+</span><span class='line'>rake generate</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>按抓给你第三方插件</h3>
+
+<p><a href="https://github.com/imathis/octopress/wiki/3rd-party-plugins">octopress第三方插件</a>
+这上面有很多插件可供下载，不过具体操作不一样，所以只提供链接。</p>
+
+<h3>Github Page绑定自己域名</h3>
+
+<p>在项目根目录下建立一文件，名为CNAME，里面写上域名，如destinyd.me 或者在命令行里执行：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>echo 'destinyd.me' &gt;&gt; source/CNAME</span></code></pre></td></tr></table></div></figure>
+
+
+<p>去自己的域名运营商处修改:
+CNAME: destinyd.me => destinyd.github.com</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -196,6 +365,10 @@ gem install jekyll 备注： 国内可能需要更换gem源，否则可能会因
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2014-08-08-maven-gei-android-ying-yong-da-bao-yin-wei-diao-yong-ben-di-jar-yun-xing-bu-cheng-gong-de-jie-jue-fang-an/">Maven 给 Android 应用打包，因为调用本地 Jar，运行不成功的解决方案</a>
+      </li>
+    
+      <li class="post">
         <a href="/2014-07-27-ru-he-zai-coffee-script-de-class-zhong-gou-jian-ke-hui-diao-de-han-shu/">如何在coffeescript的class中构建可回调的函数</a>
       </li>
     
@@ -211,15 +384,11 @@ gem install jekyll 备注： 国内可能需要更换gem源，否则可能会因
         <a href="/2014-07-10-git-zen-me-qu-xiao-yi-jing-push-le-de-commit/">Git怎么取消已经push了的commit</a>
       </li>
     
-      <li class="post">
-        <a href="/2014-07-09-yong-octopressda-jian-blog/">用octopress搭建blog</a>
-      </li>
-    
   </ul>
 </section>
 <section>
   <h1>Tag Cloud</h1>
-    <span id="tag-cloud"><a href='/blog/categories/android' style='font-size: 130.0%'>android(1)</a> <a href='/blog/categories/coffeescript' style='font-size: 130.0%'>coffeescript(1)</a> <a href='/blog/categories/git' style='font-size: 160.0%'>git(2)</a> <a href='/blog/categories/github' style='font-size: 160.0%'>github(2)</a> <a href='/blog/categories/gradle' style='font-size: 130.0%'>gradle(1)</a> <a href='/blog/categories/heroku' style='font-size: 130.0%'>heroku(1)</a> <a href='/blog/categories/javascript' style='font-size: 130.0%'>javascript(1)</a> <a href='/blog/categories/jekyll' style='font-size: 130.0%'>jekyll(1)</a> <a href='/blog/categories/maven' style='font-size: 130.0%'>maven(1)</a> <a href='/blog/categories/octopress' style='font-size: 130.0%'>octopress(1)</a> <a href='/blog/categories/ruby' style='font-size: 160.0%'>ruby(2)</a> </span>
+    <span id="tag-cloud"><a href='/blog/categories/android' style='font-size: 160.0%'>android(2)</a> <a href='/blog/categories/coffeescript' style='font-size: 130.0%'>coffeescript(1)</a> <a href='/blog/categories/git' style='font-size: 160.0%'>git(2)</a> <a href='/blog/categories/github' style='font-size: 160.0%'>github(2)</a> <a href='/blog/categories/gradle' style='font-size: 130.0%'>gradle(1)</a> <a href='/blog/categories/heroku' style='font-size: 130.0%'>heroku(1)</a> <a href='/blog/categories/javascript' style='font-size: 130.0%'>javascript(1)</a> <a href='/blog/categories/jekyll' style='font-size: 130.0%'>jekyll(1)</a> <a href='/blog/categories/maven' style='font-size: 160.0%'>maven(2)</a> <a href='/blog/categories/octopress' style='font-size: 130.0%'>octopress(1)</a> <a href='/blog/categories/ruby' style='font-size: 160.0%'>ruby(2)</a> </span>
 </section>
 
 <section>
