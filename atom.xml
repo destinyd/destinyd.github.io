@@ -4,7 +4,7 @@
   <title><![CDATA[DestinyD's Blog]]></title>
   <link href="http://destinyd.me/atom.xml" rel="self"/>
   <link href="http://destinyd.me/"/>
-  <updated>2014-08-08T20:06:19+00:00</updated>
+  <updated>2014-08-25T17:24:55+00:00</updated>
   <id>http://destinyd.me/</id>
   <author>
     <name><![CDATA[DestinyD]]></name>
@@ -12,6 +12,31 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[打开 Android 模拟器底部虚拟按键]]></title>
+    <link href="http://destinyd.me/2014-08-25-da-kai-android-mo-ni-qi-di-bu-xu-ni-an-jian/"/>
+    <updated>2014-08-25T17:06:50+00:00</updated>
+    <id>http://destinyd.me/da-kai-android-mo-ni-qi-di-bu-xu-ni-an-jian</id>
+    <content type="html"><![CDATA[<p>项目开发遇见了一个只有底部有虚拟按钮的机器才会出现的BUG，准备在模拟器里面进行测试。</p>
+
+<h3>问题是怎么在虚拟机里面打开 android 模拟器底部虚拟按键？</h3>
+
+<p>其实也是挺容易的。</p>
+
+<p>我们都知道虚拟机设置里面可以设置skin也就是皮肤，里面有不少选项，但是主要分为两类：</p>
+
+<ul>
+<li>带虚拟键盘的</li>
+<li>带底部虚拟按键的</li>
+</ul>
+
+
+<p>经测试，只有WXGA、WSVGA（横屏）2类为带底部虚拟按键的，其余均为带虚拟键盘。</p>
+
+<p>或许以后还会有更多种选择吧，这个就需要看大家的创意了。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Maven 给 Android 应用打包，因为调用本地 Jar，运行不成功的解决方案]]></title>

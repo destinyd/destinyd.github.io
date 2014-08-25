@@ -9,7 +9,8 @@
   <meta name="author" content="DestinyD">
 
   
-  <meta name="description" content="做过实际应用发布的人都知道，会应用到很多类似与umeng、友推等第三方库，一般都是jar格式的。 本人做开发，觉得maven用的很爽，所以就一直再没建过adt形式的应用工程。 但是现在发布的时候遇到了问题，apk使用IDE运行的时候正常，但是用maven打包的apk，不能正常运行，提示： 1 &hellip;">
+  <meta name="description" content="项目开发遇见了一个只有底部有虚拟按钮的机器才会出现的BUG，准备在模拟器里面进行测试。 问题是怎么在虚拟机里面打开 android 模拟器底部虚拟按键？ 其实也是挺容易的。 我们都知道虚拟机设置里面可以设置skin也就是皮肤，里面有不少选项，但是主要分为两类： 带虚拟键盘的
+带底部虚拟按键的 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -72,6 +73,58 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2014-08-25-da-kai-android-mo-ni-qi-di-bu-xu-ni-an-jian/">打开 Android 模拟器底部虚拟按键</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-08-25T17:06:50+00:00" pubdate data-updated="true">Aug 25<sup>th</sup>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>项目开发遇见了一个只有底部有虚拟按钮的机器才会出现的BUG，准备在模拟器里面进行测试。</p>
+
+<h3>问题是怎么在虚拟机里面打开 android 模拟器底部虚拟按键？</h3>
+
+<p>其实也是挺容易的。</p>
+
+<p>我们都知道虚拟机设置里面可以设置skin也就是皮肤，里面有不少选项，但是主要分为两类：</p>
+
+<ul>
+<li>带虚拟键盘的</li>
+<li>带底部虚拟按键的</li>
+</ul>
+
+
+<p>经测试，只有WXGA、WSVGA（横屏）2类为带底部虚拟按键的，其余均为带虚拟键盘。</p>
+
+<p>或许以后还会有更多种选择吧，这个就需要看大家的创意了。</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -458,75 +511,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2014-07-10-git-zen-me-qu-xiao-yi-jing-push-le-de-commit/">Git怎么取消已经push了的commit</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-07-10T19:10:51+00:00" pubdate data-updated="true">Jul 10<sup>th</sup>, 2014</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>使用版本管理工具管理项目，可能经常会遇到这些情况：
-* 发现某个commit包含了bug，但是已经push到版本库了，想在版本库取消掉它，修改之后重新commit
-* 已经上线了的功能想取消掉，这个commit包含了多个commit，均已push到版本库</p>
-
-<p>其实想要恢复还是挺简单的，git提供了一个revert指令，专门用于处理这样的事情。</p>
-
-<h2>取消掉某个commit</h2>
-
-<p>我们只需要执行：</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git revert commit_id</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>取消掉多个commit</h2>
-
-<p>我们需要倒序的执行：</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git revert commit_id1[ commit_id2 ...]</span></code></pre></td></tr></table></div></figure>
-
-
-<p>操作起来相对麻烦，类似于<code>git reset HEAD~1 --soft</code>的HEAD~N是否有效本人也没有去证明，如果有需要你们可以自己尝试。</p>
-
-<p><strong>注意：</strong>
-<strong>commit_id 可以通过git log查看。</strong></p>
-
-<h2>注意</h2>
-
-<ul>
-<li>如果之后有基于此commit做了修改的话，你还需要解决冲突。</li>
-<li>此commit不可以再通过merge方式合并，你只能修改后重新</li>
-</ul>
-
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="2">&larr; Older</a>
@@ -555,6 +539,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2014-08-25-da-kai-android-mo-ni-qi-di-bu-xu-ni-an-jian/">打开 Android 模拟器底部虚拟按键</a>
+      </li>
+    
+      <li class="post">
         <a href="/2014-08-08-maven-gei-android-ying-yong-da-bao-yin-wei-diao-yong-ben-di-jar-yun-xing-bu-cheng-gong-de-jie-jue-fang-an/">Maven 给 Android 应用打包，因为调用本地 Jar，运行不成功的解决方案</a>
       </li>
     
@@ -570,15 +558,11 @@
         <a href="/2014-07-21-git-zai-remote-duan-qing-chu-tag/">Git在remote端清除tag</a>
       </li>
     
-      <li class="post">
-        <a href="/2014-07-10-git-zen-me-qu-xiao-yi-jing-push-le-de-commit/">Git怎么取消已经push了的commit</a>
-      </li>
-    
   </ul>
 </section>
 <section>
   <h1>Tag Cloud</h1>
-    <span id="tag-cloud"><a href='/blog/categories/android' style='font-size: 160.0%'>android(2)</a> <a href='/blog/categories/coffeescript' style='font-size: 130.0%'>coffeescript(1)</a> <a href='/blog/categories/git' style='font-size: 160.0%'>git(2)</a> <a href='/blog/categories/github' style='font-size: 160.0%'>github(2)</a> <a href='/blog/categories/gradle' style='font-size: 130.0%'>gradle(1)</a> <a href='/blog/categories/heroku' style='font-size: 130.0%'>heroku(1)</a> <a href='/blog/categories/javascript' style='font-size: 130.0%'>javascript(1)</a> <a href='/blog/categories/jekyll' style='font-size: 130.0%'>jekyll(1)</a> <a href='/blog/categories/maven' style='font-size: 160.0%'>maven(2)</a> <a href='/blog/categories/octopress' style='font-size: 130.0%'>octopress(1)</a> <a href='/blog/categories/ruby' style='font-size: 160.0%'>ruby(2)</a> </span>
+    <span id="tag-cloud"><a href='/blog/categories/android' style='font-size: 160.0%'>android(3)</a> <a href='/blog/categories/coffeescript' style='font-size: 120.0%'>coffeescript(1)</a> <a href='/blog/categories/git' style='font-size: 140.0%'>git(2)</a> <a href='/blog/categories/github' style='font-size: 140.0%'>github(2)</a> <a href='/blog/categories/gradle' style='font-size: 120.0%'>gradle(1)</a> <a href='/blog/categories/heroku' style='font-size: 120.0%'>heroku(1)</a> <a href='/blog/categories/javascript' style='font-size: 120.0%'>javascript(1)</a> <a href='/blog/categories/jekyll' style='font-size: 120.0%'>jekyll(1)</a> <a href='/blog/categories/maven' style='font-size: 140.0%'>maven(2)</a> <a href='/blog/categories/octopress' style='font-size: 120.0%'>octopress(1)</a> <a href='/blog/categories/ruby' style='font-size: 140.0%'>ruby(2)</a> </span>
 </section>
 
 <section>
