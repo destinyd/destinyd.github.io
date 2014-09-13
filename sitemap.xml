@@ -3,6 +3,12 @@
   
   
   <url>
+    <loc>http://destinyd.me/2014-09-13-android-drawable-2-dot-x-yu-4-dot-x-jian-rong-zhu-yi-shi-xiang/</loc>
+    <lastmod>2014-09-13T08:44:07+00:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
     <loc>http://destinyd.me/2014-08-25-da-kai-android-mo-ni-qi-di-bu-xu-ni-an-jian/</loc>
     <lastmod>2014-08-25T17:06:50+00:00</lastmod>
     <priority>0.8</priority>
@@ -53,21 +59,21 @@
   
   <url>
     <loc>http://destinyd.me/about-me/</loc>
-    <lastmod>2014-08-25T17:24:55+00:00</lastmod>
+    <lastmod>2014-09-13T09:18:27+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://destinyd.me/blog/archives/</loc>
-    <lastmod>2014-08-25T17:24:55+00:00</lastmod>
+    <lastmod>2014-09-13T09:18:27+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://destinyd.me/</loc>
-    <lastmod>2014-08-25T17:24:55+00:00</lastmod>
+    <lastmod>2014-09-13T09:18:27+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>

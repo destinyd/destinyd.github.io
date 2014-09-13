@@ -9,8 +9,13 @@
   <meta name="author" content="DestinyD">
 
   
-  <meta name="description" content="项目开发遇见了一个只有底部有虚拟按钮的机器才会出现的BUG，准备在模拟器里面进行测试。 问题是怎么在虚拟机里面打开 android 模拟器底部虚拟按键？ 其实也是挺容易的。 我们都知道虚拟机设置里面可以设置skin也就是皮肤，里面有不少选项，但是主要分为两类： 带虚拟键盘的
-带底部虚拟按键的 &hellip;">
+  <meta name="description" content="最近开发Android应用的时候发现一个兼容性问题： 自定义的drawable在4.x以及L版本下正常，2.x上没有效果 搜索了好久没找到问题的解决办法。 重新回到drawable xml的研究。 原来的xml内容： 1
+2
+3
+4
+5
+6
+&lt;?xml version="1.0" &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -73,6 +78,102 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/2014-09-13-android-drawable-2-dot-x-yu-4-dot-x-jian-rong-zhu-yi-shi-xiang/">Android Drawable 2.x 与 4.x 兼容注意事项</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-09-13T08:44:07+00:00" pubdate data-updated="true">Sep 13<sup>th</sup>, 2014</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>最近开发Android应用的时候发现一个兼容性问题：</p>
+
+<p><strong>自定义的drawable在4.x以及L版本下正常，2.x上没有效果</strong></p>
+
+<p>搜索了好久没找到问题的解决办法。</p>
+
+<p>重新回到drawable xml的研究。</p>
+
+<p>原来的xml内容：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;layer-list xmlns:android="http://schemas.android.com/apk/res/android"&gt;
+</span><span class='line'>    &lt;item android:drawable="@color/ddd" /&gt;
+</span><span class='line'>    &lt;item android:left="1dp" android:drawable="@color/white" /&gt;
+</span><span class='line'>&lt;/layer-list&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<p>我尝试换其他的形式去改写这个分割线背景：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;layer-list xmlns:android="http://schemas.android.com/apk/res/android"&gt;
+</span><span class='line'>    &lt;item&gt;
+</span><span class='line'>        &lt;shape android:shape="rectangle"&gt;
+</span><span class='line'>            &lt;solid android:color="@color/ddd"/&gt;
+</span><span class='line'>        &lt;/shape&gt;
+</span><span class='line'>    &lt;/item&gt;
+</span><span class='line'>    &lt;item android:left="1dp"&gt;
+</span><span class='line'>        &lt;shape android:shape="rectangle"&gt;
+</span><span class='line'>            &lt;solid android:color="@color/white"/&gt;
+</span><span class='line'>        &lt;/shape&gt;
+</span><span class='line'>    &lt;/item&gt;
+</span><span class='line'>&lt;/layer-list&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<p>这样他居然就显示正常了- -b。</p>
+
+<p>我想这可能是因为Android早期对于drawable解析处理的方式还不完善导致。</p>
+
+<p>希望这篇文章能帮助和我遇到同样问题的人。</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -457,63 +558,9 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/2014-07-21-git-zai-remote-duan-qing-chu-tag/">Git在remote端清除tag</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-07-21T10:53:31+00:00" pubdate data-updated="true">Jul 21<sup>st</sup>, 2014</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>最新在弄maven的archetypes遇到点问题，使用其插件部署时会生产tag并且自动提交版本库。</p>
-
-<p>但是我忘记使用gpg签名，而我不想手工下载从新签名。</p>
-
-<p>我把之前的提交全部revert了，但是部署的时候提示remote端tag已经存在。</p>
-
-<p>搜索了一下怎么解决这个问题，才发现其实也挺简单的：</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git tag -d 12345
-</span><span class='line'>git push origin :refs/tags/12345</span></code></pre></td></tr></table></div></figure>
-
-
-<p>也就2句命令而已。</p>
-
-<p>然后我再次revert了已经push的commit，重新部署，一切问题解决。</p>
-
-<p>看来玩好git也是门艺术。</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
-      <a class="prev" href="2">&larr; Older</a>
+      <a class="prev" href="/posts-2">&larr; Older</a>
     
     <a href="/blog/archives">Blog Archives</a>
     
@@ -539,6 +586,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/2014-09-13-android-drawable-2-dot-x-yu-4-dot-x-jian-rong-zhu-yi-shi-xiang/">Android Drawable 2.x 与 4.x 兼容注意事项</a>
+      </li>
+    
+      <li class="post">
         <a href="/2014-08-25-da-kai-android-mo-ni-qi-di-bu-xu-ni-an-jian/">打开 Android 模拟器底部虚拟按键</a>
       </li>
     
@@ -554,15 +605,11 @@
         <a href="/2014-07-22-gradle-ru-he-yin-yong-maven-ku-de-xiang-mu/">Gradle 如何引用 Maven 库的项目</a>
       </li>
     
-      <li class="post">
-        <a href="/2014-07-21-git-zai-remote-duan-qing-chu-tag/">Git在remote端清除tag</a>
-      </li>
-    
   </ul>
 </section>
 <section>
   <h1>Tag Cloud</h1>
-    <span id="tag-cloud"><a href='/blog/categories/android' style='font-size: 160.0%'>android(3)</a> <a href='/blog/categories/coffeescript' style='font-size: 120.0%'>coffeescript(1)</a> <a href='/blog/categories/git' style='font-size: 140.0%'>git(2)</a> <a href='/blog/categories/github' style='font-size: 140.0%'>github(2)</a> <a href='/blog/categories/gradle' style='font-size: 120.0%'>gradle(1)</a> <a href='/blog/categories/heroku' style='font-size: 120.0%'>heroku(1)</a> <a href='/blog/categories/javascript' style='font-size: 120.0%'>javascript(1)</a> <a href='/blog/categories/jekyll' style='font-size: 120.0%'>jekyll(1)</a> <a href='/blog/categories/maven' style='font-size: 140.0%'>maven(2)</a> <a href='/blog/categories/octopress' style='font-size: 120.0%'>octopress(1)</a> <a href='/blog/categories/ruby' style='font-size: 140.0%'>ruby(2)</a> </span>
+    <span id="tag-cloud"><a href='/blog/categories/android' style='font-size: 160.0%'>android(4)</a> <a href='/blog/categories/coffeescript' style='font-size: 115.0%'>coffeescript(1)</a> <a href='/blog/categories/git' style='font-size: 130.0%'>git(2)</a> <a href='/blog/categories/github' style='font-size: 130.0%'>github(2)</a> <a href='/blog/categories/gradle' style='font-size: 115.0%'>gradle(1)</a> <a href='/blog/categories/heroku' style='font-size: 115.0%'>heroku(1)</a> <a href='/blog/categories/javascript' style='font-size: 115.0%'>javascript(1)</a> <a href='/blog/categories/jekyll' style='font-size: 115.0%'>jekyll(1)</a> <a href='/blog/categories/maven' style='font-size: 130.0%'>maven(2)</a> <a href='/blog/categories/octopress' style='font-size: 115.0%'>octopress(1)</a> <a href='/blog/categories/ruby' style='font-size: 130.0%'>ruby(2)</a> </span>
 </section>
 
 <section>

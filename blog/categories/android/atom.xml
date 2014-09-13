@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Android | DestinyD's Blog]]></title>
   <link href="http://destinyd.me/blog/categories/android/atom.xml" rel="self"/>
   <link href="http://destinyd.me/"/>
-  <updated>2014-08-25T17:24:55+00:00</updated>
+  <updated>2014-09-13T09:18:27+00:00</updated>
   <id>http://destinyd.me/</id>
   <author>
     <name><![CDATA[DestinyD]]></name>
@@ -12,6 +12,55 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Android Drawable 2.x 与 4.x 兼容注意事项]]></title>
+    <link href="http://destinyd.me/2014-09-13-android-drawable-2-dot-x-yu-4-dot-x-jian-rong-zhu-yi-shi-xiang/"/>
+    <updated>2014-09-13T08:44:07+00:00</updated>
+    <id>http://destinyd.me/android-drawable-2-dot-x-yu-4-dot-x-jian-rong-zhu-yi-shi-xiang</id>
+    <content type="html"><![CDATA[<p>最近开发Android应用的时候发现一个兼容性问题：</p>
+
+<p><strong>自定义的drawable在4.x以及L版本下正常，2.x上没有效果</strong></p>
+
+<p>搜索了好久没找到问题的解决办法。</p>
+
+<p>重新回到drawable xml的研究。</p>
+
+<p>原来的xml内容：
+```
+&lt;?xml version=&ldquo;1.0&rdquo; encoding=&ldquo;utf-8&rdquo;?></p>
+
+<p><layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@color/ddd" />
+    <item android:left="1dp" android:drawable="@color/white" />
+</layer-list>
+```</p>
+
+<p>我尝试换其他的形式去改写这个分割线背景：
+```
+&lt;?xml version=&ldquo;1.0&rdquo; encoding=&ldquo;utf-8&rdquo;?></p>
+
+<p><layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/ddd"/>
+        </shape>
+    </item>
+    <item android:left="1dp">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/white"/>
+        </shape>
+    </item>
+</layer-list>
+```</p>
+
+<p>这样他居然就显示正常了- -b。</p>
+
+<p>我想这可能是因为Android早期对于drawable解析处理的方式还不完善导致。</p>
+
+<p>希望这篇文章能帮助和我遇到同样问题的人。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[打开 Android 模拟器底部虚拟按键]]></title>
